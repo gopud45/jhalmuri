@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandal Jhalmuriwala - Order Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light gray background */
+            color: #334155; /* Darker text for readability */
+            padding: 1rem; /* p-4 */
+        }
+
+        /* Responsive Body Padding */
+        @media (min-width: 640px) { /* sm breakpoint */
+            body {
+                padding: 1.5rem; /* sm:p-6 */
+            }
+        }
+
+        @media (min-width: 768px) { /* md breakpoint */
+            body {
+                padding: 2rem; /* md:p-8 */
+            }
+        }
+
+        /* Header Styling */
+        .header-section {
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-lg */
+            border-radius: 0.75rem; /* rounded-xl */
+            padding: 1.5rem; /* p-6 */
+            margin-bottom: 2rem; /* mb-8 */
+            max-width: 80rem; /* max-w-7xl (1120px) */
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* justify-center */
+            align-items: center; /* items-center */
+            text-align: center; /* text-center */
+        }
+
+        @media (min-width: 640px) { /* sm breakpoint */
+            .header-section {
+                padding: 2rem; /* sm:p-8 */
+                flex-direction: row; /* sm:flex-row */
+            }
+        }
+
+        .header-title {
+            font-size: 2.25rem; /* text-4xl */
+            font-weight: 800; /* font-extrabold */
+            color: #2563eb; /* text-blue-700 */
+            margin-bottom: 0.5rem; /* mb-2 */
+        }
+
+        @media (min-width: 640px) { /* sm breakpoint */
+            .header-title {
+                font-size: 3rem; /* sm:text-5xl */
+            }
+        }
+
+        .header-tagline {
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 600; /* font-semibold */
+            color: #4b5563; /* text-gray-700 */
+            margin-bottom: 1rem; /* mb-4 */
+        }
+
+        @media (min-width: 640px) { /* sm breakpoint */
+            .header-tagline {
+                font-size: 1.25rem; /* sm:text-xl */
+                margin-bottom: 0; /* sm:mb-0 */
+            }
+        }
+
+        .header-address {
+            font-size: 1rem; /* text-md */
+            color: #4b5563; /* text-gray-600 */
+        }
+
+        @media (min-width: 640px) { /* sm breakpoint */
+            .header-address {
+                font-size: 1.125rem; /* sm:text-lg */
+            }
+        }
+
+        /* Main Content Area */
+        .main-content {
+            max-width: 80rem; /* max-w-7xl */
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #ffffff;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* shadow-lg */
+            padding: 1.5rem; /* p-6 */
+        }
+
+        @media (min-width: 640px) { /* sm breakpoint */
+            .main-content {
+                padding: 2rem; /* sm:p-8 */
+            }
+        }
+
+        .menu-heading {
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 700; /* font-bold */
+            color: #1f2937; /* text-gray-800 */
+            margin-bottom: 1.5rem; /* mb-6 */
+            text-align: center;
+        }
+
+        /* Menu Items Grid */
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(1, minmax(0, 1fr)); /* grid-cols-1 */
+            gap: 1.5rem; /* gap-6 */
+        }
+
+        @media (min-width: 640px) { /* sm breakpoint */
+            .menu-container {
+                grid-template-columns: repeat(2, minmax(0, 1fr)); /* sm:grid-cols-2 */
+            }
+        }
+
+        @media (min-width: 1024px) { /* lg breakpoint */
+            .menu-container {
+                grid-template-columns: repeat(3, minmax(0, 1fr)); /* lg:grid-cols-3 */
+            }
+        }
+
+        @media (min-width: 1280px) { /* xl breakpoint */
+            .menu-container {
+                grid-template-columns: repeat(4, minmax(0, 1fr)); /* xl:grid-cols-4 */
+            }
+        }
+
+        /* Menu Item Card */
+        .item-card {
+            background-color: #ffffff;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+            padding: 1.25rem; /* p-5 */
+            border: 1px solid #e5e7eb; /* border border-gray-100 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .item-card img {
+            width: 100%; /* w-full */
+            height: 8rem; /* h-32 */
+            object-fit: cover;
+            border-radius: 0.375rem; /* rounded-md */
+            margin-bottom: 1rem; /* mb-4 */
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* shadow-sm */
+        }
+
+        .item-card h3 {
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 600; /* font-semibold */
+            color: #1f2937; /* text-gray-900 */
+            margin-bottom: 0.5rem; /* mb-2 */
+        }
+
+        .item-card p {
+            color: #4b5563; /* text-gray-600 */
+            font-size: 0.875rem; /* text-sm */
+            margin-bottom: 0.75rem; /* mb-3 */
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* line-clamp-2 */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .item-card .price {
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 700; /* font-bold */
+            color: #2563eb; /* text-blue-600 */
+            margin-bottom: 1rem; /* mb-4 */
+        }
+
+        .add-to-cart-btn {
+            background-color: #f97316; /* bg-orange-500 */
+            color: #ffffff; /* text-white */
+            font-weight: 600; /* font-semibold */
+            padding: 0.625rem 1.5rem; /* py-2.5 px-6 */
+            border-radius: 9999px; /* rounded-full */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* shadow-sm */
+            transition: background-color 200ms ease-in-out; /* transition-all duration-200 */
+            width: 100%; /* w-full */
+            border: none;
+            cursor: pointer;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #ea580c; /* hover:bg-orange-600 */
+        }
+
+        .add-to-cart-btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #f8fafc, 0 0 0 4px #fb923c; /* focus:ring-2 focus:ring-offset-2 focus:ring-orange-400 */
+        }
+
+        /* Cart Summary Fixed Button */
+        .cart-summary-fixed {
+            position: fixed;
+            bottom: 1.5rem; /* bottom-6 */
+            right: 1.5rem; /* right-6 */
+            z-index: 50;
+        }
+
+        .view-cart-button {
+            background-color: #16a34a; /* bg-green-600 */
+            color: #ffffff; /* text-white */
+            font-weight: 700; /* font-bold */
+            padding: 0.75rem 1.5rem; /* py-3 px-6 */
+            border-radius: 9999px; /* rounded-full */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-lg */
+            display: flex;
+            align-items: center;
+            gap: 0.5rem; /* space-x-2 */
+            transition: background-color 200ms ease-in-out; /* transition-all duration-200 */
+            border: none;
+            cursor: pointer;
+        }
+
+        .view-cart-button:hover {
+            background-color: #15803d; /* hover:bg-green-700 */
+        }
+
+        .view-cart-button:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #f8fafc, 0 0 0 4px #22c55e; /* focus:ring-2 focus:ring-offset-2 focus:ring-green-500 */
+        }
+
+        .view-cart-button svg {
+            height: 1.5rem; /* h-6 */
+            width: 1.5rem; /* w-6 */
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+
+        /* Modal Overlays */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            padding: 2.5rem; /* p-10 */
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* shadow-xl */
+            max-width: 90%;
+            text-align: center;
+        }
+
+        /* Cart Modal Specifics */
+        .cart-modal-content {
+            width: 100%; /* w-full */
+            max-width: 28rem; /* max-w-md */
+        }
+
+        .cart-modal-content h3 {
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 700; /* font-bold */
+            color: #1f2937; /* text-gray-800 */
+            margin-bottom: 1rem; /* mb-4 */
+        }
+
+        .cart-items-list {
+            text-align: left;
+            margin-bottom: 1.5rem; /* mb-6 */
+            max-height: 15rem; /* max-h-60 */
+            overflow-y: auto;
+        }
+
+        .cart-item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 0.5rem; /* py-2 */
+            padding-bottom: 0.5rem; /* py-2 */
+            border-bottom: 1px solid #f3f4f6; /* border-b border-gray-100 */
+        }
+
+        .cart-item-row:last-child {
+            border-bottom: none; /* last:border-b-0 */
+        }
+
+        .cart-item-row span:first-child {
+            color: #4b5563; /* text-gray-700 */
+        }
+
+        .cart-item-row span:last-child {
+            font-weight: 600; /* font-semibold */
+        }
+
+        .empty-cart-message {
+            color: #6b7280; /* text-gray-500 */
+        }
+
+        .cart-total-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 700; /* font-bold */
+            color: #1f2937; /* text-gray-800 */
+            border-top: 1px solid #e5e7eb; /* border-t */
+            padding-top: 1rem; /* pt-4 */
+            margin-top: 1rem; /* mt-4 */
+        }
+
+        .modal-buttons {
+            display: flex;
+            flex-direction: column; /* flex-col */
+            justify-content: flex-end; /* justify-end */
+            margin-top: 1.5rem; /* mt-6 */
+            gap: 0.75rem; /* space-y-3 */
+        }
+
+        @media (min-width: 640px) { /* sm breakpoint */
+            .modal-buttons {
+                flex-direction: row; /* sm:flex-row */
+                gap: 1rem; /* sm:space-x-4 */
+                margin-top: 0; /* sm:mt-0 */
+            }
+        }
+
+        .modal-button {
+            font-weight: 700; /* font-bold */
+            padding: 0.625rem 1.25rem; /* py-2.5 px-5 */
+            border-radius: 9999px; /* rounded-full */
+            transition: all 200ms ease-in-out; /* transition-all duration-200 */
+            border: none;
+            cursor: pointer;
+            display: inline-flex; /* inline-flex */
+            justify-content: center; /* justify-center */
+            align-items: center; /* items-center */
+        }
+
+        .close-button {
+            background-color: #d1d5db; /* bg-gray-300 */
+            color: #1f2937; /* text-gray-800 */
+        }
+
+        .close-button:hover {
+            background-color: #9ca3af; /* hover:bg-gray-400 */
+        }
+
+        .close-button:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #f8fafc, 0 0 0 4px #6b7280; /* focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 */
+        }
+
+        .checkout-button, .pay-now-button {
+            background-color: #2563eb; /* bg-blue-600 */
+            color: #ffffff; /* text-white */
+        }
+
+        .checkout-button:hover, .pay-now-button:hover {
+            background-color: #1d4ed8; /* hover:bg-blue-700 */
+        }
+
+        .checkout-button:focus, .pay-now-button:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #f8fafc, 0 0 0 4px #3b82f6; /* focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 */
+        }
+
+        .checkout-button:disabled {
+            opacity: 0.5; /* opacity-50 */
+            cursor: not-allowed; /* cursor-not-allowed */
+        }
+
+        /* Order Confirmation Modal Specifics */
+        .confirmation-modal-content {
+            width: 100%; /* w-full */
+            max-width: 24rem; /* max-w-sm */
+        }
+
+        .confirmation-modal-content svg {
+            height: 4rem; /* h-16 */
+            width: 4rem; /* w-16 */
+            color: #22c55e; /* text-green-500 */
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1rem; /* mb-4 */
+        }
+
+        .confirmation-modal-content h3 {
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 700; /* font-bold */
+            color: #1f2937; /* text-gray-800 */
+            margin-bottom: 0.5rem; /* mb-2 */
+        }
+
+        .confirmation-modal-content p {
+            color: #4b5563; /* text-gray-600 */
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+
+        .upi-details-section {
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+
+        .upi-qr-code {
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+            margin-bottom: 1rem; /* mb-4 */
+        }
+
+        .upi-id-text {
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 600; /* font-semibold */
+            color: #1f2937; /* text-gray-800 */
+            margin-bottom: 0.5rem; /* mb-2 */
+        }
+
+        .upi-id-text a {
+            color: #2563eb; /* text-blue-600 */
+            text-decoration: underline;
+        }
+
+        .upi-id-text a:hover {
+            text-decoration: none; /* hover:underline */
+        }
+
+        .payment-amount {
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 700; /* font-bold */
+            color: #2563eb; /* text-blue-700 */
+        }
+
+        /* Welcome Message Modal */
+        .welcome-modal-content {
+            width: 100%; /* w-full */
+            max-width: 20rem; /* max-w-xs */
+            padding: 2rem; /* p-8 */
+        }
+
+        .welcome-modal-content h3 {
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 700; /* font-bold */
+            color: #2563eb; /* text-blue-700 */
+        }
+
+        /* Utility classes (equivalent to Tailwind's hidden) */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="p-4 sm:p-6 md:p-8">
+
+    <!-- Header Section -->
+    <header class="header-section">
+        <div class="header-content-wrapper">
+            <h1 class="header-title">
+                Mandal Jhalmuriwala
+            </h1>
+            <div class="header-tagline">
+                Your Go-To Spot for Delicious Chats!
+            </div>
+            <p class="header-address">
+                Located beside Blueminch Office, Siliguri
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content Area - Menu Items -->
+    <main class="main-content">
+        <h2 class="menu-heading">Our Delicious Menu</h2>
+        
+        <!-- Menu Items Grid -->
+        <div id="menu-container" class="menu-container">
+            <!-- Menu items will be dynamically loaded here by JavaScript -->
+        </div>
+    </main>
+
+    <!-- Cart Summary Fixed Button -->
+    <div class="cart-summary-fixed">
+        <button id="view-cart-button"
+            class="view-cart-button">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+            <span id="cart-item-count">0</span> Items (<span id="cart-total-price">₹0.00</span>)
+        </button>
+    </div>
+
+    <!-- Cart Modal (Hidden by default) -->
+    <div id="cart-modal-overlay" class="modal-overlay hidden">
+        <div class="modal-content cart-modal-content">
+            <h3>Your Cart</h3>
+            <div id="cart-items-list" class="cart-items-list">
+                <!-- Cart items will be listed here -->
+                <p id="empty-cart-message" class="empty-cart-message">Your cart is empty.</p>
+            </div>
+            <div class="cart-total-section">
+                <span>Total:</span>
+                <span id="modal-cart-total-price">₹0.00</span>
+            </div>
+            <div class="modal-buttons">
+                <button id="close-cart-modal"
+                    class="modal-button close-button">
+                    Continue Shopping
+                </button>
+                <button id="checkout-button"
+                    class="modal-button checkout-button">
+                    Place Order
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Confirmation Modal (Hidden by default) -->
+    <div id="order-confirmation-modal-overlay" class="modal-overlay hidden">
+        <div class="modal-content confirmation-modal-content">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-green-500 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h3>Order Placed!</h3>
+            <p class="text-gray-600 mb-6">Please scan the QR code or use the UPI ID below to complete your payment.</p>
+            
+            <div class="upi-details-section">
+                <!-- QR Code Placeholder (In a real app, this would be dynamically generated) -->
+                <img id="upi-qr-code" src="https://placehold.co/200x200/000000/FFFFFF?text=UPI+QR+Code" alt="UPI QR Code" class="upi-qr-code">
+                
+                <!-- UPI ID as a clickable link -->
+                <p class="upi-id-text">
+                    UPI ID: <a id="upi-id-link" href="#" class="text-blue-600 hover:underline">mandaljhalmuriwala@upi</a>
+                </p>
+                
+                <!-- Payment Amount -->
+                <p class="payment-amount">Amount: <span id="payment-amount">₹0.00</span></p>
+            </div>
+
+            <div class="modal-buttons">
+                <a id="upi-pay-link" href="#"
+                    class="modal-button pay-now-button">
+                    Pay Now with UPI App
+                </a>
+                <button id="close-confirmation-modal"
+                    class="modal-button close-button">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Welcome Message Modal (Hidden by default) -->
+    <div id="welcome-message-overlay" class="modal-overlay hidden">
+        <div class="modal-content welcome-modal-content">
+            <h3>Kya chahiye bhaiya?</h3>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Menu Data ---
+            const menuItems = [
+                { id: 1, name: "Jhalmuri", description: "Spicy puffed rice mix with peanuts, onion, and spices.", price: 20, image: "jhalmuri.jpg" },
+                { id: 2, name: "Kurkure Chat", description: "Crushed Kurkure mixed with chopped veggies and tangy sauces.", price: 40, image: "kurkure.jpg" },
+                { id: 3, name: "Wai Wai Chat", description: "Instant noodles mixed with fresh vegetables and special chat masala.", price: 40, image: "waiwai.jpg" },
+                { id: 4, name: "Aloo Chat", description: "Boiled potato cubes tossed with tangy tamarind chutney and spices.", price: 30, image: "alo.jpg" },
+                { id: 5, name: "Lays Chat", description: "Crispy Lays chips mixed with fresh onions, tomatoes, and tangy spices.", price: 40, image: "lays.chat.jpg" },
+                { id: 6, name: "Bhelpuri Chat", description: "A popular Indian snack made with puffed rice, vegetables, and a tangy tamarind sauce.", price: 40, image: "bhelpuri.webp" }
+            ];
+
+            // --- DOM Elements ---
+            const menuContainer = document.getElementById('menu-container');
+            const cartItemCount = document.getElementById('cart-item-count');
+            const cartTotalPrice = document.getElementById('cart-total-price');
+            const viewCartButton = document.getElementById('view-cart-button');
+            const cartModalOverlay = document.getElementById('cart-modal-overlay');
+            const closeCartModalButton = document.getElementById('close-cart-modal');
+            const cartItemsList = document.getElementById('cart-items-list');
+            const modalCartTotalPrice = document.getElementById('modal-cart-total-price');
+            const emptyCartMessage = document.getElementById('empty-cart-message');
+            const checkoutButton = document.getElementById('checkout-button');
+            const orderConfirmationModalOverlay = document.getElementById('order-confirmation-modal-overlay');
+            const closeConfirmationModalButton = document.getElementById('close-confirmation-modal');
+
+            // New elements for UPI payment
+            const upiQrCode = document.getElementById('upi-qr-code');
+            const upiIdLink = document.getElementById('upi-id-link'); 
+            const paymentAmount = document.getElementById('payment-amount');
+            const upiPayLink = document.getElementById('upi-pay-link');
+
+            // Welcome message popup element
+            const welcomeMessageOverlay = document.getElementById('welcome-message-overlay');
+
+            // --- Cart State ---
+            let cart = []; // Stores objects like { id: 1, name: "Jhalmuri", price: 30, quantity: 1 }
+
+            // --- Functions ---
+
+            // Function to render menu items dynamically
+            function renderMenuItems() {
+                menuContainer.innerHTML = ''; // Clear existing items
+                menuItems.forEach(item => {
+                    const itemCard = document.createElement('div');
+                    // Apply CSS classes directly
+                    itemCard.className = 'item-card'; 
+                    itemCard.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}">
+                        <h3>${item.name}</h3>
+                        <p>${item.description}</p>
+                        <div class="price">₹${item.price.toFixed(2)}</div>
+                        <button data-id="${item.id}"
+                            class="add-to-cart-btn">
+                            Add to Cart
+                        </button>
+                    `;
+                    menuContainer.appendChild(itemCard);
+                });
+
+                // Add event listeners to "Add to Cart" buttons
+                document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+                    button.addEventListener('click', (event) => {
+                        const itemId = parseInt(event.target.dataset.id);
+                        addItemToCart(itemId);
+                    });
+                });
+            }
+
+            // Function to add item to cart
+            function addItemToCart(itemId) {
+                const existingItemIndex = cart.findIndex(item => item.id === itemId);
+                const menuItem = menuItems.find(item => item.id === itemId);
+
+                if (menuItem) {
+                    if (existingItemIndex > -1) {
+                        // Item already in cart, increase quantity
+                        cart[existingItemIndex].quantity++;
+                    } else {
+                        // Add new item to cart
+                        cart.push({
+                            id: menuItem.id,
+                            name: menuItem.name,
+                            price: menuItem.price,
+                            quantity: 1
+                        });
+                    }
+                    updateCartSummary();
+                    // Optionally show a quick confirmation message or animate the cart button
+                }
+            }
+
+            // Function to update cart summary (fixed button)
+            function updateCartSummary() {
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+                cartItemCount.textContent = totalItems;
+                cartTotalPrice.textContent = `₹${totalPrice.toFixed(2)}`;
+
+                // Enable/disable checkout button based on cart content
+                if (totalItems > 0) {
+                    viewCartButton.classList.remove('hidden');
+                    checkoutButton.disabled = false;
+                    checkoutButton.classList.remove('opacity-50', 'cursor-not-allowed');
+                } else {
+                    viewCartButton.classList.add('hidden'); // Hide if cart is empty
+                    checkoutButton.disabled = true;
+                    checkoutButton.classList.add('opacity-50', 'cursor-not-allowed');
+                }
+            }
+
+            // Function to render cart items in the modal
+            function renderCartItemsInModal() {
+                cartItemsList.innerHTML = ''; // Clear existing list
+                if (cart.length === 0) {
+                    emptyCartMessage.classList.remove('hidden');
+                } else {
+                    emptyCartMessage.classList.add('hidden');
+                    cart.forEach(item => {
+                        const cartItemDiv = document.createElement('div');
+                        cartItemDiv.className = 'cart-item-row';
+                        cartItemDiv.innerHTML = `
+                            <span>${item.name} x ${item.quantity}</span>
+                            <span>₹${(item.price * item.quantity).toFixed(2)}</span>
+                        `;
+                        cartItemsList.appendChild(cartItemDiv);
+                    });
+                }
+                const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                modalCartTotalPrice.textContent = `₹${totalPrice.toFixed(2)}`;
+            }
+
+            // Function to clear the cart
+            function clearCart() {
+                cart = [];
+                updateCartSummary();
+                renderCartItemsInModal(); // Update modal to show empty cart
+            }
+
+            // --- Event Listeners ---
+
+            // Show cart modal
+            viewCartButton.addEventListener('click', () => {
+                renderCartItemsInModal();
+                cartModalOverlay.classList.remove('hidden');
+            });
+
+            // Close cart modal
+            closeCartModalButton.addEventListener('click', () => {
+                cartModalOverlay.classList.add('hidden');
+            });
+
+            // Checkout process - now includes UPI payment details
+            checkoutButton.addEventListener('click', () => {
+                const totalAmount = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                const upiId = "mandaljhalmuriwala@upi"; // Replace with your actual UPI ID
+                const merchantName = "Mandal Jhalmuriwala";
+                const transactionNote = "Order from Mandal Jhalmuriwala";
+                const transactionRef = "ORDER" + Date.now(); // Simple unique reference
+
+                // Construct UPI deep link
+                const upiLink = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(merchantName)}&mc=0000&tid=${transactionRef}&tr=${transactionRef}&tn=${encodeURIComponent(transactionNote)}%20${transactionRef}&am=${totalAmount.toFixed(2)}&cu=INR`;
+
+                // Update UPI details in the confirmation modal
+                upiIdLink.textContent = upiId; // Update the text content of the link
+                upiIdLink.href = upiLink;    // Set the href for the UPI ID link
+                paymentAmount.textContent = `₹${totalAmount.toFixed(2)}`;
+                upiPayLink.href = upiLink;
+
+                // For QR code: In a real app, you'd use a QR code generation API here.
+                // Using a generic placeholder for now to ensure functionality without external dependency
+                upiQrCode.src = `https://placehold.co/200x200/000000/FFFFFF?text=Scan+to+Pay%0A%E2%82%B9${totalAmount.toFixed(2)}`;
+
+
+                cartModalOverlay.classList.add('hidden'); // Hide cart modal
+                orderConfirmationModalOverlay.classList.remove('hidden'); // Show confirmation modal
+                // Do NOT clear cart here yet, wait for payment confirmation in a real app
+                // clearCart(); // Uncomment this line if you want to clear cart immediately after showing QR
+            });
+
+            // Close order confirmation modal
+            closeConfirmationModalButton.addEventListener('click', () => {
+                orderConfirmationModalOverlay.classList.add('hidden');
+                clearCart(); // Clear cart when user closes confirmation modal
+            });
+
+            // Close modals if clicking outside (on the overlay itself)
+            cartModalOverlay.addEventListener('click', (event) => {
+                if (event.target === cartModalOverlay) {
+                    cartModalOverlay.classList.add('hidden');
+                }
+            });
+
+            orderConfirmationModalOverlay.addEventListener('click', (event) => {
+                if (event.target === orderConfirmationModalOverlay) {
+                    orderConfirmationModalOverlay.classList.add('hidden');
+                    clearCart(); // Clear cart if user closes confirmation modal by clicking outside
+                }
+            });
+
+            // --- Welcome Message Popup Logic ---
+            // Show the welcome message after 3 seconds
+            setTimeout(() => {
+                welcomeMessageOverlay.classList.remove('hidden');
+                // Hide the welcome message after 2.5 seconds
+                setTimeout(() => {
+                    welcomeMessageOverlay.classList.add('hidden');
+                }, 2500); // 2.5 seconds
+            }, 3000); // 3 seconds
+
+            // --- Initial Render ---
+            renderMenuItems();
+            updateCartSummary(); // Initialize cart summary
+        });
+    </script>
+</body>
+
+</html>
+
